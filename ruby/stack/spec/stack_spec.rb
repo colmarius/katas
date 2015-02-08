@@ -61,4 +61,9 @@ RSpec.describe Stack do
     stack.push(1)
     expect(stack.top).to eq 1
   end
+
+  it 'when stack is empty top throws empty' do
+    expect { stack.top }
+      .to raise_error(Stack::Empty)
+  end
 end

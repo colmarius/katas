@@ -2,6 +2,7 @@ require 'stack/bounded'
 require 'stack/zero_capacity'
 
 module Stack
+  Empty = Class.new(RuntimeError)
   IllegalCapacity = Class.new(RuntimeError)
   Overflow = Class.new(RuntimeError)
   Underflow = Class.new(RuntimeError)

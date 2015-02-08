@@ -26,6 +26,7 @@ module Stack
     end
 
     def top
+      raise Empty.new if size == 0
       @elements[@size - 1]
     end
   end

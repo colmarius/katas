@@ -17,7 +17,7 @@ module Stack
     end
 
     def top
-      -1
+      raise Empty.new
     end
   end
 end
