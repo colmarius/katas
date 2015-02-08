@@ -66,4 +66,10 @@ RSpec.describe Stack do
     expect { stack.top }
       .to raise_error(Stack::Empty)
   end
+
+  it 'with zero capacity stack top throws empty' do
+    @stack = Stack.make(0)
+    expect { @stack.top }
+      .to raise_error(Stack::Empty)
+  end
 end
