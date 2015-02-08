@@ -79,4 +79,8 @@ RSpec.describe Stack do
     expect(stack.find(1)).to eq 1
     expect(stack.find(2)).to eq 0
   end
+
+  it 'given stack with no 2, find should return nil' do
+    expect(stack.find(2)).to be nil
+  end
 end

@@ -35,7 +35,7 @@ module Stack
       stack_top.downto(0) do |i|
         return stack_top - i if @elements[i] == element
       end
-      - 1
+      nil
     end
   end
 end

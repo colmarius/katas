@@ -21,7 +21,7 @@ module Stack
     end
 
     def find(element)
-      -1
+      nil
     end
   end
 end
