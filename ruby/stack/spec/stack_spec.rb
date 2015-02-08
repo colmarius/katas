@@ -72,4 +72,11 @@ RSpec.describe Stack do
     expect { @stack.top }
       .to raise_error(Stack::Empty)
   end
+
+  it 'given stack with 1, 2 pushed find 1 and 2' do
+    stack.push(1)
+    stack.push(2)
+    expect(stack.find(1)).to eq 1
+    expect(stack.find(2)).to eq 0
+  end
 end

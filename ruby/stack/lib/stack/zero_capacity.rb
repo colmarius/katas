@@ -19,5 +19,9 @@ module Stack
     def top
       raise Empty.new
     end
+
+    def find(element)
+      -1
+    end
   end
 end

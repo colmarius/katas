@@ -29,5 +29,13 @@ module Stack
       raise Empty.new if empty?
       @elements[size - 1]
     end
+
+    def find(element)
+      stack_top = (size - 1)
+      stack_top.downto(0) do |i|
+        return stack_top - i if @elements[i] == element
+      end
+      - 1
+    end
   end
 end
