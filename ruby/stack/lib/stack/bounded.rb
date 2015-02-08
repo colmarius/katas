@@ -20,13 +20,13 @@ module Stack
     end
 
     def pop
-      raise Underflow.new if size == 0
+      raise Underflow.new if empty?
       @size -= 1
       @elements[@size]
     end
 
     def top
-      raise Empty.new if size == 0
+      raise Empty.new if empty?
       @elements[size - 1]
     end
   end
