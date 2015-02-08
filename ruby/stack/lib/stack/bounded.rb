@@ -9,12 +9,12 @@ module Stack
     end
 
     def empty?
-      @size == 0
+      size == 0
     end
 
     def push(element)
       raise Overflow.new if size == capacity
-      @elements[@size] = element
+      @elements[size] = element
       @size += 1
       nil
     end
@@ -27,7 +27,7 @@ module Stack
 
     def top
       raise Empty.new if size == 0
-      @elements[@size - 1]
+      @elements[size - 1]
     end
   end
 end
