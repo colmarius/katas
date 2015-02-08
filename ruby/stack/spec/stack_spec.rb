@@ -28,4 +28,9 @@ RSpec.describe Stack do
       stack.push(1)
     }.to raise_error(Stack::Overflow)
   end
+
+  it 'when empty stack popped should throw underflow' do
+    expect { stack.pop }
+      .to raise_error(Stack::Underflow)
+  end
 end
