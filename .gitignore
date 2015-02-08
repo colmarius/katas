@@ -1,0 +1,4 @@
+/* Ignore bundle configs */
+.bundle/
+vendor/
+bin/
