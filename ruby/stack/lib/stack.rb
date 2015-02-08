@@ -12,4 +12,8 @@ class Stack
   def push(element)
     @size += 1
   end
+
+  def pop
+    @size -= 1
+  end
 end

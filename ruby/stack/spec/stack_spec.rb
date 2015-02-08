@@ -14,4 +14,10 @@ RSpec.describe Stack do
     expect(stack.size).to eq 1
     expect(stack.empty?).to be false
   end
+
+  it 'after one push and one pop should be empty' do
+    stack.push(1)
+    stack.pop
+    expect(stack.empty?).to be true
+  end
 end
