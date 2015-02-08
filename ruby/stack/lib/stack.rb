@@ -7,6 +7,7 @@ class Stack
   def initialize(capacity)
     @size = 0
     @capacity = capacity
+    @elements = Array.new(capacity)
   end
   private_class_method :new
 
@@ -16,14 +17,15 @@ class Stack
 
   def push(element)
     raise Overflow.new if size == capacity
+    @elements[@size] = element
     @size += 1
-    @element = element
+    nil
   end
 
   def pop
     raise Underflow.new if size == 0
     @size -= 1
-    @element
+    @elements[@size]
   end
 
   def self.make(capacity)

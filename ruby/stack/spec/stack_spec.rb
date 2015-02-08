@@ -38,4 +38,11 @@ RSpec.describe Stack do
     stack.push(1)
     expect(stack.pop).to eq 1
   end
+
+  it 'when one and two are pushed two and one are popped' do
+    stack.push(1)
+    stack.push(2)
+    expect(stack.pop).to eq 2
+    expect(stack.pop).to eq 1
+  end
 end
