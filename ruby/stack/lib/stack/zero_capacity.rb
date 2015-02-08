@@ -15,5 +15,9 @@ module Stack
     def pop
       raise Underflow.new
     end
+
+    def top
+      -1
+    end
   end
 end

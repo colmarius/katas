@@ -56,4 +56,9 @@ RSpec.describe Stack do
     expect { @stack.push(1) }
       .to raise_error(Stack::Overflow)
   end
+
+  it 'when one is pushed one is on top' do
+    stack.push(1)
+    expect(stack.top).to eq 1
+  end
 end

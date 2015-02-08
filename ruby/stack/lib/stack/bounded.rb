@@ -24,5 +24,9 @@ module Stack
       @size -= 1
       @elements[@size]
     end
+
+    def top
+      @elements[@size - 1]
+    end
   end
 end
