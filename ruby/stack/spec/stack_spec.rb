@@ -33,4 +33,9 @@ RSpec.describe Stack do
     expect { stack.pop }
       .to raise_error(Stack::Underflow)
   end
+
+  it 'when one is pushed one is popped' do
+    stack.push(1)
+    expect(stack.pop).to eq 1
+  end
 end

@@ -17,11 +17,13 @@ class Stack
   def push(element)
     raise Overflow.new if size == capacity
     @size += 1
+    @element = element
   end
 
   def pop
     raise Underflow.new if size == 0
     @size -= 1
+    @element
   end
 
   def self.make(capacity)
