@@ -1,4 +1,5 @@
 require 'stack/bounded'
+require 'stack/zero_capacity'
 
 module Stack
   IllegalCapacity = Class.new(RuntimeError)
@@ -7,6 +8,11 @@ module Stack
 
   def self.make(capacity)
     raise IllegalCapacity.new if capacity < 0
-    Bounded.new(capacity)
+
+    if capacity == 0
+      ZeroCapacity.new
+    else
+      Bounded.new(capacity)
+    end
   end
 end

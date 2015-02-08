@@ -50,4 +50,10 @@ RSpec.describe Stack do
     expect { Stack.make(-1) }
       .to raise_error(Stack::IllegalCapacity)
   end
+
+  it 'when creating stack with zero capacity any push should overflow' do
+    @stack = Stack.make(0)
+    expect { @stack.push(1) }
+      .to raise_error(Stack::Overflow)
+  end
 end
