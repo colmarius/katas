@@ -2,7 +2,7 @@ require 'spec_helper'
 require 'stack'
 
 RSpec.describe Stack do
-  let(:stack) { Stack.new }
+  let(:stack) { Stack.make(2) }
 
   it 'newly created stacks should be empty' do
     expect(stack.empty?).to be true
@@ -19,5 +19,13 @@ RSpec.describe Stack do
     stack.push(1)
     stack.pop
     expect(stack.empty?).to be true
+  end
+
+  it 'when pushed past limit stack overflows' do
+    expect {
+      stack.push(1)
+      stack.push(1)
+      stack.push(1)
+    }.to raise_error(Stack::Overflow)
   end
 end
