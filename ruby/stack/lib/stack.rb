@@ -1,4 +1,5 @@
 class Stack
+  IllegalCapacity = Class.new(RuntimeError)
   Overflow = Class.new(RuntimeError)
   Underflow = Class.new(RuntimeError)
 
@@ -29,6 +30,7 @@ class Stack
   end
 
   def self.make(capacity)
+    raise IllegalCapacity.new if capacity < 0
     new(capacity)
   end
 end

@@ -45,4 +45,9 @@ RSpec.describe Stack do
     expect(stack.pop).to eq 2
     expect(stack.pop).to eq 1
   end
+
+  it 'when creating stack with negative size should throw illegal capacity' do
+    expect { Stack.make(-1) }
+      .to raise_error(Stack::IllegalCapacity)
+  end
 end
