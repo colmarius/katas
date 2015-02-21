@@ -76,5 +76,11 @@ RSpec.describe StringCalculator do
         expect(add('1,2,2000')).to eq 3
       end
     end
+
+    describe 'should allow delimiters of any length between brackets' do
+      it '*** is a valid delimiter' do
+        expect(add("//[***]\n1***2***3")).to eq 6
+      end
+    end
   end
 end

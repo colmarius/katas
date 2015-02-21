@@ -4,6 +4,7 @@ module StringCalculator
   def self.add(numbers_string)
     numbers_string = '0' if numbers_string.empty?
     delimiter = delimiter_regex(numbers_string)
+    numbers_string = remove_delimiter(numbers_string)
     numbers = numbers_string.split(delimiter).map(&:to_i)
     numbers = filter_numbers(numbers)
     negative_numbers = negative_numbers(numbers)
@@ -17,16 +18,23 @@ module StringCalculator
 
   private
 
-  CUSTOM_DELIMITER = /^\/\/(?<delimiter>.)\n.*/
+  CUSTOM_DELIMITER = /^\/\/(?<delimiter>.)\n/
+  MANY_DELIMITERS = /^\/\/\[(?<delimiter>.*)\]\n/
 
   def self.delimiter_regex(numbers)
-    match = numbers.match(CUSTOM_DELIMITER)
+    match = numbers.match(MANY_DELIMITERS) || numbers.match(CUSTOM_DELIMITER)
 
     if match
-      /#{ Regexp.escape(match['delimiter']) }/
+      "#{ match['delimiter'] }"
     else
       /,|\n/
     end
+  end
+
+  def self.remove_delimiter(numbers_string)
+    numbers_string
+      .gsub(MANY_DELIMITERS, '')
+      .gsub(CUSTOM_DELIMITER, '')
   end
 
   def self.negative_numbers(numbers)
