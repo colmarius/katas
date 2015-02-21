@@ -24,5 +24,17 @@ RSpec.describe StringCalculator do
     it 'should return 3 when passed 1,2' do
       expect(add('1,2')).to eq 3
     end
+
+    describe 'should return correct sum when passed different numbers' do
+      5.times do
+        numbers = 7.times.map { (10 * Random.rand).ceil }
+        numbers_string = numbers.join(',')
+        numbers_sum = numbers.reduce(&:+)
+
+        it "should return #{numbers_sum} as sum when passing #{numbers_string} numbers" do
+          expect(add(numbers_string)).to eq numbers_sum
+        end
+      end
+    end
   end
 end
