@@ -7,14 +7,18 @@ RSpec.describe StringCalculator do
   end
 
   describe '#add' do
+    def add(numbers)
+      described_class.add(numbers)
+    end
+
     it 'should return zero for empty string' do
-      expect(StringCalculator.add('')).to eq 0
+      expect(add('')).to eq 0
     end
 
     it 'should return the number if one number passed' do
-      expect(StringCalculator.add('1')).to eq 1
-      expect(StringCalculator.add('3')).to eq 3
-      expect(StringCalculator.add('10')).to eq 10
+      expect(add('1')).to eq 1
+      expect(add('3')).to eq 3
+      expect(add('10')).to eq 10
     end
   end
 end
