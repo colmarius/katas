@@ -36,5 +36,19 @@ RSpec.describe StringCalculator do
         end
       end
     end
+
+    describe 'should allow new lines or commas as numbers separators' do
+      it 'supports commas only' do
+        expect(add('1,2,3,4,5')).to eq 15
+      end
+
+      it 'supports new lines only' do
+        expect(add("1\n2\n3\n4\n5")).to eq 15
+      end
+
+      it 'support mixed commas and new lines' do
+        expect(add("1\n2,3,4\n5")).to eq 15
+      end
+    end
   end
 end
