@@ -50,5 +50,15 @@ RSpec.describe StringCalculator do
         expect(add("1\n2,3,4\n5")).to eq 15
       end
     end
+
+    describe 'should allow custom delimeter' do
+      it 'semicolumn as delimeter' do
+        expect(add("//;\n1;2;3;4;5")).to eq 15
+      end
+
+      it 'plus as delimeter' do
+        expect(add("//+\n1+2+3+4+5")).to eq 15
+      end
+    end
   end
 end
