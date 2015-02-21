@@ -20,5 +20,9 @@ RSpec.describe StringCalculator do
       expect(add('3')).to eq 3
       expect(add('10')).to eq 10
     end
+
+    it 'should return 3 when passed 1,2' do
+      expect(add('1,2')).to eq 3
+    end
   end
 end
