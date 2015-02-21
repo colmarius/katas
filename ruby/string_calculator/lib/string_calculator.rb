@@ -5,6 +5,7 @@ module StringCalculator
     numbers_string = '0' if numbers_string.empty?
     delimiter = delimiter_regex(numbers_string)
     numbers = numbers_string.split(delimiter).map(&:to_i)
+    numbers = filter_numbers(numbers)
     negative_numbers = negative_numbers(numbers)
 
     if negative_numbers.any?
@@ -30,5 +31,11 @@ module StringCalculator
 
   def self.negative_numbers(numbers)
     numbers.select { |number| number < 0 }
+  end
+
+  MAX_NUMBER_ALLOWED = 1000
+
+  def self.filter_numbers(numbers)
+    numbers.select { |number| number <= MAX_NUMBER_ALLOWED }
   end
 end
