@@ -32,5 +32,10 @@ RSpec.describe NameInverter do
     it 'when passed First Last with spaces return "Last, First"' do
       assert_inverted('  First   Last  ', 'Last, First')
     end
+
+    it 'should ignore honorific' do
+      assert_inverted('Mr. Name', 'Name')
+      assert_inverted('Mr. First Last', 'Last, First')
+    end
   end
 end
