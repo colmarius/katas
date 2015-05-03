@@ -4,13 +4,17 @@ require 'name_inverter'
 RSpec.describe NameInverter do
   let(:name_inverter) { NameInverter.new }
 
+  def assert_inverted(original_name, expected_name)
+    expect(name_inverter.invert_name(original_name)).to eq(expected_name)
+  end
+
   describe '#invert_name' do
     it 'return empty string for nil name' do
-      expect(name_inverter.invert_name(nil)).to eq('')
+      assert_inverted(nil, '')
     end
 
     it 'return empty string for empty name' do
-      expect(name_inverter.invert_name('')).to eq('')
+      assert_inverted('', '')
     end
   end
 end
