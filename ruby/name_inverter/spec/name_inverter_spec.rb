@@ -7,5 +7,10 @@ RSpec.describe NameInverter do
       name_inverter = NameInverter.new
       expect(name_inverter.invert_name(nil)).to eq('')
     end
+
+    it 'return empty string for empty name' do
+      name_inverter = NameInverter.new
+      expect(name_inverter.invert_name('')).to eq('')
+    end
   end
 end
