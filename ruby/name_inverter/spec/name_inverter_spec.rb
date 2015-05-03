@@ -21,8 +21,16 @@ RSpec.describe NameInverter do
       assert_inverted('Name', 'Name')
     end
 
+    it 'return Name for Name with spaces' do
+      assert_inverted('  Name ', 'Name')
+    end
+
     it 'when passed "First Last" return "Last, First"' do
       assert_inverted('First Last', 'Last, First')
+    end
+
+    it 'when passed First Last with spaces return "Last, First"' do
+      assert_inverted('  First   Last  ', 'Last, First')
     end
   end
 end
