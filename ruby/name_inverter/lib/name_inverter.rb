@@ -3,7 +3,7 @@ class NameInverter
     return '' if name.nil? || name.empty?
 
     names = name.split(' ')
-    names.delete_at(0) if names[0] == 'Mr.'
+    names.delete_at(0) if names[0] =~ /Mr\.|Mrs\./
 
     if names.length == 1
       return names[0]

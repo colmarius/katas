@@ -33,8 +33,9 @@ RSpec.describe NameInverter do
       assert_inverted('  First   Last  ', 'Last, First')
     end
 
-    it 'should ignore honorific' do
+    it 'should ignore honorifics' do
       assert_inverted('Mr. Name', 'Name')
+      assert_inverted('Mrs. Name', 'Name')
       assert_inverted('Mr. First Last', 'Last, First')
     end
   end
