@@ -6,3 +6,4 @@ Various code [katas](http://en.wikipedia.org/wiki/Kata_(programming)) which help
 * [Ruby](/ruby)
   * [Stack](/ruby/stack)
   * [String Calculator](/ruby/string_calculator)
+  * [Name Inverter](/ruby/name_inverter)
