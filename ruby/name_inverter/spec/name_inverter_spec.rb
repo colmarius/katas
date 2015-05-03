@@ -43,5 +43,9 @@ RSpec.describe NameInverter do
       assert_inverted('First Last Sr.', 'Last, First Sr.')
       assert_inverted('First Last BS. Phd.', 'Last, First BS. Phd.')
     end
+
+    it 'should pass integration test' do
+      assert_inverted('Mr.   Robert   Martin  III  esq.   ', 'Martin, Robert III esq.')
+    end
   end
 end
