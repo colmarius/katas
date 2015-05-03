@@ -20,5 +20,9 @@ RSpec.describe NameInverter do
     it 'return Name for Name' do
       assert_inverted('Name', 'Name')
     end
+
+    it 'when passed "First Last" return "Last, First"' do
+      assert_inverted('First Last', 'Last, First')
+    end
   end
 end
