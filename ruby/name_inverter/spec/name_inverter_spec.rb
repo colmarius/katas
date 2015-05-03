@@ -16,5 +16,9 @@ RSpec.describe NameInverter do
     it 'return empty string for empty name' do
       assert_inverted('', '')
     end
+
+    it 'return Name for Name' do
+      assert_inverted('Name', 'Name')
+    end
   end
 end
