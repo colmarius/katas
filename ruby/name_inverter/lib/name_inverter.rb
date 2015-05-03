@@ -8,7 +8,14 @@ class NameInverter
     if names.length == 1
       return names[0]
     else
-      return "#{names[1]}, #{names[0]}"
+      post_nominal = ''
+
+      if names.length > 2
+        post_nominals = names.slice(2, names.length)
+        post_nominal = post_nominals.join(' ')
+      end
+
+      return "#{names[1]}, #{names[0]} #{post_nominal}".strip
     end
   end
 

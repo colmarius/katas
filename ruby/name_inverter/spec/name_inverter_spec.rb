@@ -38,5 +38,10 @@ RSpec.describe NameInverter do
       assert_inverted('Mrs. Name', 'Name')
       assert_inverted('Mr. First Last', 'Last, First')
     end
+
+    it 'should keep post nominals at end' do
+      assert_inverted('First Last Sr.', 'Last, First Sr.')
+      assert_inverted('First Last BS. Phd.', 'Last, First BS. Phd.')
+    end
   end
 end
