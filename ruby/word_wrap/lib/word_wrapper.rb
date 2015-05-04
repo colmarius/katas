@@ -5,7 +5,10 @@ module WordWrapper
     if s.length <= width
       s
     else
-      "#{ s.slice(0, width) }\n#{ wrap(s.slice(width, s.length), width) }"
+      head = s.slice(0, width)
+      rest = s.slice(width, s.length)
+
+      "#{ head }\n#{ wrap(rest, width) }"
     end
   end
 end
