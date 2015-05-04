@@ -5,8 +5,11 @@ module WordWrapper
     if s.length <= width
       s
     else
-      head = s.slice(0, width)
-      rest = s.slice(width, s.length)
+      break_point = s.rindex(' ')
+      break_point = width unless break_point
+
+      head = s.slice(0, break_point)
+      rest = s.slice(break_point, s.length)
 
       "#{ head }\n#{ wrap(rest.strip, width) }"
     end

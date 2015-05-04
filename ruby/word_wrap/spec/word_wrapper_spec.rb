@@ -27,5 +27,9 @@ RSpec.describe WordWrapper do
     it 'should return "x\nx" for "x x" with width 1' do
       expect_wraps('x x', 1, "x\nx")
     end
+
+    it 'should return "x\nxx" for "x xx" with width 3' do
+      expect_wraps('x xx', 3, "x\nxx")
+    end
   end
 end
