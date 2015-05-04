@@ -7,9 +7,12 @@ RSpec.describe WordWrapper do
       expect(described_class.wrap(input, width)).to eq(output)
     end
 
-    it 'should wrap a string with new lines based on width' do
+    it 'should return empty string for empty input' do
       expect_wraps(nil, 1, '')
       expect_wraps('', 1, '')
+    end
+
+    it 'should return x for width 1' do
       expect_wraps('x', 1, 'x')
     end
   end
