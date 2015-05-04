@@ -8,7 +8,7 @@ module WordWrapper
       head = s.slice(0, width)
       rest = s.slice(width, s.length)
 
-      "#{ head }\n#{ wrap(rest, width) }"
+      "#{ head }\n#{ wrap(rest.strip, width) }"
     end
   end
 end
