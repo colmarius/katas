@@ -31,5 +31,11 @@ RSpec.describe WordWrapper do
     it 'should return "x\nxx" for "x xx" with width 3' do
       expect_wraps('x xx', 3, "x\nxx")
     end
+
+    it 'should pass integration test' do
+      expect_wraps(
+        'four score and seven years ago our fathers brought forth upon this continent', 7,
+        "four\nscore\nand\nseven\nyears\nago our\nfathers\nbrought\nforth\nupon\nthis\ncontine\nnt")
+    end
   end
 end

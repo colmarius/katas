@@ -5,7 +5,7 @@ module WordWrapper
     if s.length <= width
       s
     else
-      break_point = s.rindex(' ')
+      break_point = s.rindex(' ', width)
       break_point = width unless break_point
 
       head = s.slice(0, break_point)
