@@ -6,17 +6,19 @@ RSpec.describe Anagrams do
     File.expand_path(path, __dir__)
   end
 
+  let(:file_path) { 'data/short_wordlist.txt' }
+  let(:anagrams) { described_class.new(file_path: file_path) }
+
   describe '#initialize' do
     it 'loads anagrams from text file' do
       expect {
-        described_class.new(file_path: 'data/short_wordlist.txt')
+        anagrams
       }.to_not raise_error
     end
   end
 
   describe '#original_words' do
     it 'returns a list of words as loaded from file' do
-      anagrams = described_class.new(file_path: 'data/short_wordlist.txt')
       expect(anagrams.original_words).to eq [
         "boaster", "boaters", "borates", "enlist", "fresher", "inlets",
         "kinship", "knits", "listen", "pinkish", "refresh", "rots", "silent",
@@ -28,7 +30,6 @@ RSpec.describe Anagrams do
   describe '#anagram_words' do
     describe 'with short wordlist' do
       it 'returns list of anagram words (all related anagrams per line)' do
-        anagrams = described_class.new(file_path: 'data/short_wordlist.txt')
         expected_anagram_words = anagrams.anagram_words.sort
 
         anagram_lines = File.read(
