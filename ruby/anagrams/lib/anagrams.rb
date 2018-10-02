@@ -6,4 +6,8 @@ class Anagrams
     content = File.read(path)
     @original_words = content.split("\n")
   end
+
+  def anagram_words
+    []
+  end
 end

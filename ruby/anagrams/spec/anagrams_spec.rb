@@ -24,4 +24,17 @@ RSpec.describe Anagrams do
       ]
     end
   end
+
+  describe '#anagram_words' do
+    it 'should return list of anagram words (all related anagrams per line)' do
+      anagrams = described_class.new(file_path: 'data/short_wordlist.txt')
+      first_line = anagrams.anagram_words.sort.first
+
+      expected_anagram_lines = File.read(
+        File.expand_path('data/short_anagrams.txt', __dir__)
+      ).split("\n").sort
+
+      expect(first_line).to eq expected_anagram_lines.first
+    end
+  end
 end
