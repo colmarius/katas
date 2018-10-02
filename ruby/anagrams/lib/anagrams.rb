@@ -8,6 +8,11 @@ class Anagrams
   end
 
   def anagram_words
-    []
+    dictionary = original_words.each_with_object({}) do |word, memo|
+      normalized_word = word.downcase.split('').sort.join
+      memo[normalized_word] ||= []
+      memo[normalized_word] << word
+    end
+    dictionary.values.map { |list| list.sort.join(' ') }.sort
   end
 end

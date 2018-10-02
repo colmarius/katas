@@ -7,7 +7,7 @@ RSpec.describe Anagrams do
   end
 
   describe '#initialize' do
-    it 'should load anagrams from text file' do
+    it 'loads anagrams from text file' do
       expect {
         described_class.new(file_path: 'data/short_wordlist.txt')
       }.to_not raise_error
@@ -15,7 +15,7 @@ RSpec.describe Anagrams do
   end
 
   describe '#original_words' do
-    it 'should return a list of words as loaded from file' do
+    it 'returns a list of words as loaded from file' do
       anagrams = described_class.new(file_path: 'data/short_wordlist.txt')
       expect(anagrams.original_words).to eq [
         "boaster", "boaters", "borates", "enlist", "fresher", "inlets",
@@ -26,15 +26,19 @@ RSpec.describe Anagrams do
   end
 
   describe '#anagram_words' do
-    it 'should return list of anagram words (all related anagrams per line)' do
-      anagrams = described_class.new(file_path: 'data/short_wordlist.txt')
-      first_line = anagrams.anagram_words.sort.first
+    describe 'with short wordlist' do
+      it 'returns list of anagram words (all related anagrams per line)' do
+        anagrams = described_class.new(file_path: 'data/short_wordlist.txt')
+        expected_anagram_words = anagrams.anagram_words.sort
 
-      expected_anagram_lines = File.read(
-        File.expand_path('data/short_anagrams.txt', __dir__)
-      ).split("\n").sort
+        anagram_lines = File.read(
+          File.expand_path('data/short_anagrams.txt', __dir__)
+        ).split("\n").sort
 
-      expect(first_line).to eq expected_anagram_lines.first
+        expected_anagram_words.each_with_index do |expected_anagrams, index|
+          expect(anagram_lines[index]).to eq expected_anagrams
+        end
+      end
     end
   end
 end
